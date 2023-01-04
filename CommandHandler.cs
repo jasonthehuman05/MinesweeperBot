@@ -35,9 +35,9 @@ namespace MinesweeperBot
         public async Task<Task> DoAction(SocketSlashCommand arg)
         {
             arg.DeferAsync(); //Tell discord the command has been received
-
-
-            await arg.FollowupAsync("Received"); //Send reply
+            Minesweeper ms = new Minesweeper();
+            ms.GenerateBoard();
+            await arg.FollowupAsync(":one:"); //Send reply
 
             return Task.CompletedTask;
         }
