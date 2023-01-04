@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="discord.net" Version="3.9.0" />
+    <PackageReference Include="newtonsoft.json" Version="13.0.2" />
   </ItemGroup>
 
   <ItemGroup>
