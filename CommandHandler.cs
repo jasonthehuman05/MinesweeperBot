@@ -10,11 +10,6 @@ namespace MinesweeperBot
 {
     internal class CommandHandler
     {
-        public CommandHandler()
-        {
-
-        }
-
         public async Task<SlashCommandProperties> LoadCommands()
         {
             //Creates the command and assigns the informaiton needed
