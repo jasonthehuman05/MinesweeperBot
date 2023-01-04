@@ -34,8 +34,8 @@ namespace MinesweeperBot
 
             for(int i = 0; i < mineCount; i++)
             {
-                int x = random.Next(0, width);
-                int y = random.Next(0, height);
+                int x = random.Next(0, (int)width);
+                int y = random.Next(0, (int)height);
 
                 gameBoard[x, y] = "💣";
             }
