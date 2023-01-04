@@ -1,5 +1,8 @@
 ﻿using Discord;
 using Discord.WebSocket;
+using System.Threading.Tasks;
+using System;
+using System.IO;
 
 namespace MinesweeperBot
 {

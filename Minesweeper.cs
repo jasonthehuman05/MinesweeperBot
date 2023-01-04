@@ -76,11 +76,11 @@ namespace MinesweeperBot
             for (int y = 0; y < height; y++)
             {
                 string line = "";
-                for (int x = 0; x < width; x++)
+                for (int x = 0; x < width;x++)
                 {
                     line += $"||{gameBoard[x, y]}||";
                 }
-                board.Append(line);
+                board.Add(line);
 
             }
             return board;
