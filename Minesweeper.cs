@@ -24,7 +24,7 @@ namespace MinesweeperBot
             this.height = height;
         }
 
-        public string GenerateBoard()
+        public List<string> GenerateBoard()
         {
             int mineCount = (int)(Math.Sqrt(width*height));
             Console.WriteLine(mineCount);
@@ -72,20 +72,16 @@ namespace MinesweeperBot
             }
 
             //Convert array to a string that Discord can handle
-            string board = "";
-            for(int y = 0; y < height; y++)
+            List<string> board = new List<string>();
+            for (int y = 0; y < height; y++)
             {
+                string line = "";
                 for (int x = 0; x < width; x++)
                 {
-                    board += $"||{gameBoard[x, y]}||";
-                    Console.WriteLine(gameBoard[x, y]);
+                    line += $"||{gameBoard[x, y]}||";
                 }
-                if (y + 1 != height) { board += "\n"; }
-            }
-            board += "completed board!";
-            if(board.Length > 2000)
-            {
-                board = $"Board too large to send! (size is {board.Length}, maximum is 2000)";
+                board.Append(line);
+
             }
             return board;
         }

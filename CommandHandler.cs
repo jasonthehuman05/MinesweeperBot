@@ -44,8 +44,16 @@ namespace MinesweeperBot
             //Console.WriteLine($"WIDTH = {width}    HEIGHT = {height}");
 
             Minesweeper ms = new Minesweeper(width, height);
-            string board = ms.GenerateBoard();
-            await arg.FollowupAsync(board); //Send reply
+            List<string> board = ms.GenerateBoard();
+            await arg.FollowupAsync("Your board:"); //Send reply
+
+            //Send the board
+            IMessageChannel channel = arg.Channel;
+            
+            foreach(string line in board)
+            {
+                await channel.SendMessageAsync(line);
+            }
 
             return Task.CompletedTask;
         }
