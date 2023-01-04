@@ -11,4 +11,10 @@
     <PackageReference Include="discord.net" Version="3.9.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="token.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
