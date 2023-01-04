@@ -36,8 +36,8 @@ namespace MinesweeperBot
         {
             arg.DeferAsync(); //Tell discord the command has been received
             Minesweeper ms = new Minesweeper();
-            ms.GenerateBoard();
-            await arg.FollowupAsync(":one:"); //Send reply
+            string board = ms.GenerateBoard();
+            await arg.FollowupAsync(board); //Send reply
 
             return Task.CompletedTask;
         }

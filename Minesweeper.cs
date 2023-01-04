@@ -25,7 +25,6 @@ namespace MinesweeperBot
 
         public string GenerateBoard()
         {
-            string board = "";
             int mineCount = (int)(Math.Sqrt(width*height));
             Console.Write(mineCount);
 
@@ -72,6 +71,14 @@ namespace MinesweeperBot
             }
 
             //Convert array to a string that Discord can handle
+            string board = "";
+            for(int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    board += gameBoard[x, y];
+                }
+            }
 
             return board;
         }
