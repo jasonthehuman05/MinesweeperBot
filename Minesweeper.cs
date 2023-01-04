@@ -15,6 +15,7 @@ namespace MinesweeperBot
         public long width;
         public long height;
 
+
         private string bomb = "💣";
         private string[] numbers = { ":orange_square:",":one:",":two:",":three:",":four:",":five:",":six:",":seven:",":eight:",":nine:",":keycap_ten:"};
         public Minesweeper(long width = 5, long height = 5)
@@ -76,11 +77,16 @@ namespace MinesweeperBot
             {
                 for (int x = 0; x < width; x++)
                 {
-                    board += gameBoard[x, y];
+                    board += $"||{gameBoard[x, y]}||";
+                    Console.WriteLine(gameBoard[x, y]);
                 }
-                board += "\n";
+                if (y + 1 != height) { board += "\n"; }
             }
-
+            board += "completed board!";
+            if(board.Length > 2000)
+            {
+                board = $"Board too large to send! (size is {board.Length}, maximum is 2000)";
+            }
             return board;
         }
     }
