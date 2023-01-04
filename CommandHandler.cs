@@ -17,7 +17,8 @@ namespace MinesweeperBot
 
             commandBuilder.WithName("minesweeper");
             commandBuilder.WithDescription("Generate a minesweeper board");
-            
+            commandBuilder.AddOption("width", ApplicationCommandOptionType.Integer, "Width of the board", isRequired: true);
+            commandBuilder.AddOption("height", ApplicationCommandOptionType.Integer, "Height of the board", isRequired: true);
 
             //Builds it to be added
             SlashCommandProperties scp = commandBuilder.Build();
@@ -35,7 +36,14 @@ namespace MinesweeperBot
         public async Task<Task> DoAction(SocketSlashCommand arg)
         {
             arg.DeferAsync(); //Tell discord the command has been received
-            Minesweeper ms = new Minesweeper();
+
+            //int value = (int)arg.Data.Options.First().Value;
+            SocketSlashCommandDataOption[] value = arg.Data.Options.ToArray();
+            long width = (long)value[0].Value;
+            long height = (long)value[1].Value;
+            //Console.WriteLine($"WIDTH = {width}    HEIGHT = {height}");
+
+            Minesweeper ms = new Minesweeper(width, height);
             string board = ms.GenerateBoard();
             await arg.FollowupAsync(board); //Send reply
 

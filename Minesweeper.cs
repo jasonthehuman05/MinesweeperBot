@@ -12,12 +12,12 @@ namespace MinesweeperBot
         ///This class is the host of all things related to making the actual game board.
         /// </summary>
 
-        public int width;
-        public int height;
+        public long width;
+        public long height;
 
         private string bomb = "💣";
         private string[] numbers = { ":orange_square:",":one:",":two:",":three:",":four:",":five:",":six:",":seven:",":eight:",":nine:",":keycap_ten:"};
-        public Minesweeper(int width = 5, int height = 5)
+        public Minesweeper(long width = 5, long height = 5)
         {
             this.width = width;
             this.height = height;
