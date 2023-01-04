@@ -26,7 +26,7 @@ namespace MinesweeperBot
         public string GenerateBoard()
         {
             int mineCount = (int)(Math.Sqrt(width*height));
-            Console.Write(mineCount);
+            Console.WriteLine(mineCount);
 
             string[,] gameBoard = new string[width, height];
 
@@ -78,6 +78,7 @@ namespace MinesweeperBot
                 {
                     board += gameBoard[x, y];
                 }
+                board += "\n";
             }
 
             return board;
